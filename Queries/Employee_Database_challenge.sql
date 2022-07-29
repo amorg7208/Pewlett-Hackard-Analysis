@@ -1,3 +1,4 @@
+-- Deliverable 1 and 2 below module work in this file.
 -- Creating tables for PH-EmployeeDB
 CREATE TABLE departments (
      dept_no VARCHAR(4) NOT NULL,
@@ -232,28 +233,12 @@ SELECT DISTINCT ON (retirement_titles.emp_no) retirement_titles.emp_no,
 retirement_titles.first_name,
 retirement_titles.last_name,
 retirement_titles.title
-INTO recent_title
+INTO unique_titles
 FROM retirement_titles
 WHERE (to_date = '9999-01-01')
 ORDER BY retirement_titles.emp_no ASC, retirement_titles.to_date DESC;
 
---Confirm updates.
-SELECT * FROM recent_title;
-
---need to save this new table as "unique_titles.csv and I named it 
---"recent_title" so drop, edit and create new table with correct title.
---DROP TABLE recent_title;
-
---SELECT DISTINCT ON (retirement_titles.emp_no) retirement_titles.emp_no,
---retirement_titles.first_name,
---retirement_titles.last_name,
--- retirement_titles.title
--- INTO unique_titles
--- FROM retirement_titles
--- WHERE (to_date = '9999-01-01')
--- ORDER BY retirement_titles.emp_no ASC, retirement_titles.to_date DESC;
-
---confirm renaming of table
+--confirm new table
 SELECT * FROM unique_titles;
 --export and save as .csv file
 
@@ -313,3 +298,4 @@ ORDER BY employees.emp_no ASC;
 --confirm new table
 SELECT * FROM mentorship_eligibility;
 --export and save as .csv
+
